@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="android.view.View"></import>
+
+        <variable
+            name="redditViewModel"
+            type="com.zensolutions.ViewModel.ItemRedditViewModel"></variable>
+    </data>
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/reddit_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignStart="@+id/reddit_author"
+            android:layout_marginRight="275dp"
+            android:text="@{redditViewModel.redditTitle}"
+            android:textSize="24dp" />
+        <!--@{redditViewModel.redditTitle}-->
+        <TextView
+            android:id="@+id/reddit_author"
+            android:layout_width="68dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:paddingTop="42dp"
+            android:text="@{redditViewModel.redditAuthor}" />
+        <!--@{redditViewModel.redditAuthor}-->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/reddit_title"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="92dp"
+            android:text="@{redditViewModel.redditCommentCount" />
+        <!--@{redditViewModel.redditCommentCount-->
+
+    </RelativeLayout>
+</layout>
