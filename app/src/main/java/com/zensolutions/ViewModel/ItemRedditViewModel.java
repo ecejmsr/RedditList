@@ -3,22 +3,23 @@ package com.zensolutions.ViewModel;
 import android.content.Context;
 import android.databinding.BaseObservable;
 
-import com.zensolutions.Model.Data_;
+import com.zensolutions.Model.Child;
+
 
 public class ItemRedditViewModel extends BaseObservable{
-    private Data_ reddit;
+    private Child reddit;
     private Context context;
 
-    public ItemRedditViewModel(Data_ reddit, Context context){
+    public ItemRedditViewModel(Child reddit, Context context){
         this.reddit= reddit;
         this.context= context;
     }
 
-    public String getRedditTitle(){return reddit.getTitle();}
+    public String getRedditTitle(){return reddit.getData().getTitle();}
 
-    public String getRedditAuthor(){return reddit.getAuthor();}
+    public String getRedditAuthor(){return reddit.getData().getAuthor();}
 
-    public String getRedditCommentCount(){return Integer.toString(reddit.getNumComments());}
+    public String getRedditCommentCount(){return Integer.toString(reddit.getData().getNumComments());}
 
     public void onItemClick(){
         //INSERT DIALOG HERE

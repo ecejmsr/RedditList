@@ -5,7 +5,8 @@ import android.content.Context;
 import android.databinding.ObservableInt;
 
 import com.zensolutions.AppController;
-import com.zensolutions.Model.Data_;
+import com.zensolutions.Model.Child;
+
 import com.zensolutions.Model.UserResponse;
 import com.zensolutions.Network.RedditService;
 
@@ -23,9 +24,9 @@ import static com.zensolutions.Network.URL.BASE_URL;
 
 public class RedditViewModel extends Observable {
     public ObservableInt redditRecycler;
-    private MutableLiveData<List<Data_>> mMutableLiveData;
+    private MutableLiveData<List<Child>> mMutableLiveData;
 
-    private List<Data_> redditList;
+    private List<Child> redditList;
     private Context context;
     private CompositeDisposable mCompositeDisposable= new CompositeDisposable();
 
@@ -52,13 +53,13 @@ public class RedditViewModel extends Observable {
         mCompositeDisposable.add(disposable);
     }
 
-    private void updateRedditDataList(List<Data_> reddit){
+    private void updateRedditDataList(List<Child> reddit){
         redditList.addAll(reddit);
         setChanged();
         notifyObservers();
     }
 
-    public List<Data_> getRedditList(){return redditList;}
+    public List<Child> getRedditList(){return redditList;}
 
     private void unSubcribeFromObservable(){
         if(mCompositeDisposable != null && !mCompositeDisposable.isDisposed()){

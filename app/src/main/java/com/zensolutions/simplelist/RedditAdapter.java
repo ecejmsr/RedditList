@@ -6,7 +6,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.zensolutions.Model.Data_;
+import com.zensolutions.Model.Child;
+
 import com.zensolutions.ViewModel.ItemRedditViewModel;
 import com.zensolutions.simplelist.databinding.ItemRedditBinding;
 
@@ -17,9 +18,9 @@ import java.util.List;
 import io.reactivex.annotations.NonNull;
 
 public class RedditAdapter extends RecyclerView.Adapter<RedditAdapter.RedditAdapterViewHolder>{
-    private List<Data_> redditList;
-    private List<Data_> filteredDataList= new ArrayList<>();
-    private List<Data_> savedDataList= new ArrayList<>();
+    private List<Child> redditList;
+    private List<Child> filteredDataList= new ArrayList<>();
+    private List<Child> savedDataList= new ArrayList<>();
 
     public RedditAdapter(){this.redditList= Collections.emptyList();}
 
@@ -40,7 +41,7 @@ public class RedditAdapter extends RecyclerView.Adapter<RedditAdapter.RedditAdap
         return filteredDataList.size();
     }
 
-    public void setRedditList(List<Data_> redditList){
+    public void setRedditList(List<Child> redditList){
         this.redditList= redditList;
         filteredDataList= redditList;
         savedDataList= redditList;
@@ -56,7 +57,7 @@ public class RedditAdapter extends RecyclerView.Adapter<RedditAdapter.RedditAdap
             this.itemRedditBinding = itemRedditBinding;
         }
 
-        void bindReddit(Data_ reddit){
+        void bindReddit(Child reddit){
             if(itemRedditBinding.getRedditViewModel()==null){
                 itemRedditBinding.setRedditViewModel(new ItemRedditViewModel(reddit, itemView.getContext()));
             }
