@@ -7,6 +7,7 @@ import android.databinding.ObservableInt;
 import com.zensolutions.AppController;
 import com.zensolutions.Model.Child;
 
+import com.zensolutions.Model.Data;
 import com.zensolutions.Model.UserResponse;
 import com.zensolutions.Network.RedditService;
 
@@ -24,7 +25,6 @@ import static com.zensolutions.Network.URL.BASE_URL;
 
 public class RedditViewModel extends Observable {
     public ObservableInt redditRecycler;
-    private MutableLiveData<List<Child>> mMutableLiveData;
 
     private List<Child> redditList;
     private Context context;
@@ -47,7 +47,7 @@ public class RedditViewModel extends Observable {
                                         .subscribe(new Consumer<UserResponse>(){
                                             @Override
                                             public void accept(UserResponse userResponse) throws Exception{
-                                                updateRedditDataList(userResponse.getRedditList());
+                                                updateRedditDataList(userResponse.getData().getChildren());
                                             }
                                         });
         mCompositeDisposable.add(disposable);
