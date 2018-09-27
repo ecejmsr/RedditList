@@ -19,11 +19,9 @@ import java.util.List;
 import io.reactivex.annotations.NonNull;
 
 public class RedditAdapter extends RecyclerView.Adapter<RedditAdapter.RedditAdapterViewHolder>{
-    private List<Child> redditList;
-    private List<Child> filteredDataList= new ArrayList<>();
-    private List<Child> savedDataList= new ArrayList<>();
+    private List<Child> filteredDataList;
 
-    public RedditAdapter(){this.redditList= Collections.emptyList();}
+    public RedditAdapter(){this.filteredDataList= Collections.emptyList();}
 
     @NonNull
     @Override
@@ -43,9 +41,7 @@ public class RedditAdapter extends RecyclerView.Adapter<RedditAdapter.RedditAdap
     }
 
     public void setRedditList(List<Child> redditList){
-        this.redditList= redditList;
-        filteredDataList= redditList;
-        savedDataList= redditList;
+        this.filteredDataList= redditList;
         notifyDataSetChanged();
     }
 
@@ -63,7 +59,7 @@ public class RedditAdapter extends RecyclerView.Adapter<RedditAdapter.RedditAdap
                 itemRedditBinding.setRedditViewModel(new ItemRedditViewModel(reddit, itemView.getContext()));
             }
             else{
-                itemRedditBinding.getRedditViewModel();
+                itemRedditBinding.getRedditViewModel().getRedditTitle();
             }
         }
     }

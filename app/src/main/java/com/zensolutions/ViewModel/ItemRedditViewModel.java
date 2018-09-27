@@ -12,12 +12,9 @@ import java.util.List;
 
 public class ItemRedditViewModel extends BaseObservable{
     private Child reddit;
-    private Context context;
-    private List<Child> redditThreads= null;
 
     public ItemRedditViewModel(Child reddit, Context context){
         this.reddit= reddit;
-        this.context= context;
     }
 
     public String getRedditTitle(){return reddit.getData().getAuthor(); }
