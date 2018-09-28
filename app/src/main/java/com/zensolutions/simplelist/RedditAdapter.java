@@ -1,11 +1,14 @@
 package com.zensolutions.simplelist;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.databinding.DataBindingUtil;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 
 import com.zensolutions.Model.Child;
 
@@ -36,7 +39,7 @@ public class RedditAdapter extends RecyclerView.Adapter<RedditAdapter.RedditAdap
     }
 
     @Override
-    public void onBindViewHolder(@android.support.annotation.NonNull RedditAdapterViewHolder holder, int position) {
+    public void onBindViewHolder(@android.support.annotation.NonNull RedditAdapterViewHolder holder, final int position) {
         holder.bindReddit(filteredDataList.get(position));
     }
 
@@ -54,9 +57,15 @@ public class RedditAdapter extends RecyclerView.Adapter<RedditAdapter.RedditAdap
     public static class RedditAdapterViewHolder extends RecyclerView.ViewHolder{
         ItemRedditBinding itemRedditBinding;
 
-        public RedditAdapterViewHolder(ItemRedditBinding itemRedditBinding) {
+        public RedditAdapterViewHolder(final ItemRedditBinding itemRedditBinding) {
             super(itemRedditBinding.relativeLayout);
             this.itemRedditBinding = itemRedditBinding;
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    itemRedditBinding.getRedditViewModel().onClick();
+                }
+            });
         }
 
         void bindReddit(Child reddit){
