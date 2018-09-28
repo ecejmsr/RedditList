@@ -38,10 +38,10 @@ public class RedditViewModel extends Observable {
     }
 
     private void fetchRedditList(){
-        AppController appController= AppController.create(context);
-        RedditService redditService= appController.getRedditService();
+        final AppController appController= AppController.create(context);
+        final RedditService redditService= appController.getRedditService();
 
-        Disposable disposable= redditService.fetchReddit(BASE_URL)
+        Disposable disposable= redditService.fetchReddit()
                                         .subscribeOn(appController.subcribeScheduler())
                                         .observeOn(AndroidSchedulers.mainThread())
                                         .subscribe(new Consumer<UserResponse>(){

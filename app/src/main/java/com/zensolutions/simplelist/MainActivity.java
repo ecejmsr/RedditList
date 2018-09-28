@@ -45,10 +45,9 @@ public class MainActivity extends AppCompatActivity implements Observer {
     }
 
     private void setUpListOfReddit(RecyclerView listReddit){
-        RedditAdapter redditAdapter= new RedditAdapter();
-        listReddit.setAdapter(redditAdapter);
         listReddit.setLayoutManager(new LinearLayoutManager(this));
-
+        RedditAdapter redditAdapter= new RedditAdapter(getApplicationContext());
+        listReddit.setAdapter(redditAdapter);
     }
 
     public void setUpObserver(Observable observable){observable.addObserver(this);}

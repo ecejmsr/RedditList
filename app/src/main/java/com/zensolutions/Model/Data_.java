@@ -36,9 +36,7 @@ public class Data_ {
         this.subreddit = subreddit;
     }
 
-    public String getSelftext() {
-        return selftext;
-    }
+    public String getSelftext() {return selftext;}
 
     public void setSelftext(String selftext) {
         this.selftext = selftext;

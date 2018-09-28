@@ -5,6 +5,7 @@ import android.content.Context;
 
 import com.zensolutions.Network.ApiFactory;
 import com.zensolutions.Network.RedditService;
+import com.zensolutions.Utils.ApiUtils;
 
 import io.reactivex.Scheduler;
 import io.reactivex.schedulers.Schedulers;
@@ -22,7 +23,7 @@ public class AppController extends Application {
 
     public RedditService getRedditService() {
         if(mRedditService == null){
-            mRedditService= ApiFactory.create();
+            mRedditService= ApiUtils.getSOService();
         }
         return mRedditService;
     }
