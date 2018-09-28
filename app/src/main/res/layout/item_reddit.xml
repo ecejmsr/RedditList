@@ -15,8 +15,7 @@
         android:id="@+id/relativeLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="8dp"
-        android:onClick="@{redditViewModel::onItemClick}">
+        android:padding="8dp">
 
         <TextView
             android:id="@+id/reddit_title"

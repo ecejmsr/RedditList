@@ -1,8 +1,6 @@
 package com.zensolutions.simplelist;
 
-import android.app.Dialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.databinding.DataBindingUtil;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -25,7 +23,7 @@ public class RedditAdapter extends RecyclerView.Adapter<RedditAdapter.RedditAdap
     private List<Child> filteredDataList;
     private Context context;
 
-    public RedditAdapter(Context context){
+    public RedditAdapter(){
         this.filteredDataList= Collections.emptyList();
         this.context= context;
     }
@@ -38,7 +36,7 @@ public class RedditAdapter extends RecyclerView.Adapter<RedditAdapter.RedditAdap
     }
 
     @Override
-    public void onBindViewHolder(RedditAdapterViewHolder holder, int position) {
+    public void onBindViewHolder(@android.support.annotation.NonNull RedditAdapterViewHolder holder, int position) {
         holder.bindReddit(filteredDataList.get(position));
     }
 
